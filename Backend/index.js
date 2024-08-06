@@ -90,66 +90,58 @@ app.get("/profile", (req, res) => {
 
 // Post request for uploading question paper
 
-app.post(
-  "/questionpapers",
-  uploadMiddleware.single("file"),
-  async (req, res) => {
-    const { originalname, path } = req.file;
-    const parts = originalname.split(".");
-    const ext = parts[parts.length - 1];
-    const newPath = path + "." + ext;
-    fs.renameSync(path, newPath);
-    const { token } = req.cookies;
-    jwt.verify(token, secret, {}, async (err, info) => {
-      if (err) throw err;
-      const { FacultyName, Slot, Subject, Picture } = req.body;
-      const postDoc = await QuestionPaper.create({
-        FacultyName,
-        Slot,
-        Subject,
-        Picture: newPath,
-        owner: info.id,
-      });
-      res.json(postDoc);
+app.post("questionpaper", uploadMiddleware.single("file"), async (req, res) => {
+  const { originalname, path } = req.file;
+  const parts = originalname.split(".");
+  const ext = parts[parts.length - 1];
+  const newPath = path + "." + ext;
+  fs.renameSync(path, newPath);
+  const { token } = req.cookies;
+  jwt.verify(token, secret, {}, async (err, info) => {
+    if (err) throw err;
+    const { FacultyName, Slot, Subject, Picture } = req.body;
+    const postDoc = await QuestionPaper.create({
+      FacultyName,
+      Slot,
+      Subject,
+      Picture: newPath,
+      owner: info.id,
     });
-  }
-);
+    res.json(postDoc);
+  });
+});
 
 // Get request for Showing question paper
 
-app.put(
-  "/questionpapers",
-  uploadMiddleware.single("file"),
-  async (req, res) => {
-    let newPath = null;
-    if (req.file) {
-      const { originalname, path } = req.file;
-      const parts = originalname.split(".");
-      const ext = parts[parts.length - 1];
-      newPath = path + "." + ext;
-      fs.renameSync(path, newPath);
-    }
-    const { token } = req.cookies;
-    jwt.verify(token, secret, {}, async (err, info) => {
-      if (err) throw err;
-      const { FacultyName, Slot, Subject, Picture } = req.body;
-      const postDoc = await QuestionPaper.findById(id);
-      const isOwner = JSON.stringify(postDoc.owner) === JSON.stringify(info.id);
-      if (!isOwner) {
-        return res.status(400).json("Did not find any Question Paper");
-      }
-      await postDoc.update({
-        FacultyName,
-        Slot,
-        Subject,
-        Picture: newPath ? newPath : postDoc.Picture,
-      });
-      res.json(postDoc);
-    });
+app.put("questionpaper", uploadMiddleware.single("file"), async (req, res) => {
+  let newPath = null;
+  if (req.file) {
+    const { originalname, path } = req.file;
+    const parts = originalname.split(".");
+    const ext = parts[parts.length - 1];
+    newPath = path + "." + ext;
+    fs.renameSync(path, newPath);
   }
-);
+  const { token } = req.cookies;
+  jwt.verify(token, secret, {}, async (err, info) => {
+    if (err) throw err;
+    const { FacultyName, Slot, Subject, Picture } = req.body;
+    const postDoc = await QuestionPaper.findById(id);
+    const isOwner = JSON.stringify(postDoc.owner) === JSON.stringify(info.id);
+    if (!isOwner) {
+      return res.status(400).json("Did not find any Question Paper");
+    }
+    await postDoc.update({
+      FacultyName,
+      Slot,
+      Subject,
+      Picture: newPath ? newPath : postDoc.Picture,
+    });
+    res.json(postDoc);
+  });
+});
 
-app.get("/questionpapers", async (req, res) => {
+app.get("questionpaper", async (req, res) => {
   res.json(
     await QuestionPaper.find()
       .populate("owner", ["username"])
