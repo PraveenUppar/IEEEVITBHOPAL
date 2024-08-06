@@ -1,1 +1,1 @@
-import View from "./view.js";
+import View from "./view/homeView.js";

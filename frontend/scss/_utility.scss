@@ -1,0 +1,59 @@
+.margin-bottom-s-1 {
+  margin-bottom: 0.6rem;
+}
+
+.margin-bottom-s-2 {
+  margin-bottom: 1.2rem;
+}
+.margin-bottom-s-3 {
+  margin-bottom: 1.6rem;
+}
+
+.link {
+  transition: all 0.3s;
+
+  &:link,
+  &:visited {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+.btn {
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  background-color: var(--color-white);
+
+  &:hover {
+    cursor: pointer;
+    background-color: var(--color-black-3);
+    color: var(--color-white);
+    box-shadow: inset 0 0 0 0.1rem var(--color-white);
+  }
+}
+
+.hidden {
+  display: none !important;
+}
+
+@mixin text-base {
+  line-height: 1.5;
+}
+
+.text {
+  @include text-base;
+  font-size: 1.8rem;
+
+  &-v-sml {
+    @include text-base;
+    font-size: 1.2rem;
+  }
+}
+
+.heading-primary {
+  font-size: 2.4rem;
+}
