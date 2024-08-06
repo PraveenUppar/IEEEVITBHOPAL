@@ -1,3 +1,5 @@
+// This code creates a database model for storing Package data in a database.
+
 const mongoose = require("mongoose");
 
 const PackageSchema = new mongoose.Schema({

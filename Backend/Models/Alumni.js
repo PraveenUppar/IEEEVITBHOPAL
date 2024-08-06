@@ -1,3 +1,5 @@
+// This code creates a database model for storing alumni data in a database.
+
 const mongoose = require("mongoose");
 
 const AlumniSchema = new mongoose.Schema({

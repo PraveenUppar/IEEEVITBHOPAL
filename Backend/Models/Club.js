@@ -1,3 +1,5 @@
+// This code creates a database model for storing Club data in a database.
+
 const mongoose = require("mongoose");
 
 const ClubSchema = new mongoose.Schema({

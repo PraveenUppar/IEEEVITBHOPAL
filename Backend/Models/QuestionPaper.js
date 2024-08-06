@@ -1,3 +1,5 @@
+// This code creates a database model for storing question paper data in a database.
+
 const mongoose = require("mongoose");
 
 const QuestionPaperSchema = new mongoose.Schema({

@@ -1,3 +1,5 @@
+// This code creates a database model for storing user data in a database.
+
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 

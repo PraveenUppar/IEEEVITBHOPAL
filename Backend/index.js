@@ -9,23 +9,38 @@ const Package = require("./Models/Package.js");
 const Club = require("./Models/Club.js");
 const Alumni = require("./Models/Alumni.js");
 
+// A library for hashing and salting passwords
 const bcrypt = require("bcrypt");
+// A library for creating and verifying JSON Web Tokens (JWT), used for authentication and authorization.
 const jwt = require("jsonwebtoken");
+// A library for parsing cookies in HTTP requests, allowing you to access and manage cookies easily.
 const cookieParser = require("cookie-parser");
-
+// A library for handling multipart/form-data requests, allowing you to upload files.
 const multer = require("multer");
+// A middleware function created using multer, specifying that uploaded files should be stored in the "uploads/" directory.
 const uploadMiddleware = multer({ dest: "uploads/" });
+// A built-in Node.js library for interacting with the file system, allowing you to perform operations like reading, writing, and deleting files.
 const fs = require("fs");
 
 const app = express();
 
+//  salt is used to scramble passwords before storing them.
 const salt = bcrypt.genSaltSync(10);
+// secret is used to create secure tokens for user authentication.
 const secret = bcrypt.genSaltSync(10);
 
+// Enables parsing of JSON data in request bodies.
 app.use(express.json());
+// Enables parsing of cookies in request headers.
 app.use(cookieParser());
+
+// Enables parsing of URL-encoded data in request bodies
 app.use(express.urlencoded({ extended: true }));
+
+// Serves static files from the "/uploads" directory.
 app.use("/uploads", express.static(__dirname + "/uploads"));
+
+// Enables Cross-Origin Resource Sharing (CORS) for requests from "http://localhost:1234" with credentials
 app.use(
   cors({
     credentials: true,
@@ -33,6 +48,7 @@ app.use(
   })
 );
 
+// This line of code establishes a secure connection to a MongoDB database, allowing your application to interact with the database.
 mongoose.connect(
   "mongodb+srv://praveenuppar718:AEzmZXInlgBKWtP7@uni-help.owbnnyr.mongodb.net/?retryWrites=true&w=majority&appName=Uni-Help"
 );
@@ -90,30 +106,34 @@ app.get("/profile", (req, res) => {
 
 // Post request for uploading question paper
 
-app.post("questionpaper", uploadMiddleware.single("file"), async (req, res) => {
-  const { originalname, path } = req.file;
-  const parts = originalname.split(".");
-  const ext = parts[parts.length - 1];
-  const newPath = path + "." + ext;
-  fs.renameSync(path, newPath);
-  const { token } = req.cookies;
-  jwt.verify(token, secret, {}, async (err, info) => {
-    if (err) throw err;
-    const { FacultyName, Slot, Subject, Picture } = req.body;
-    const postDoc = await QuestionPaper.create({
-      FacultyName,
-      Slot,
-      Subject,
-      Picture: newPath,
-      owner: info.id,
+app.post(
+  "questionpapers",
+  uploadMiddleware.single("file"),
+  async (req, res) => {
+    const { originalname, path } = req.file;
+    const parts = originalname.split(".");
+    const ext = parts[parts.length - 1];
+    const newPath = path + "." + ext;
+    fs.renameSync(path, newPath);
+    const { token } = req.cookies;
+    jwt.verify(token, secret, {}, async (err, info) => {
+      if (err) throw err;
+      const { FacultyName, Slot, Subject, Picture } = req.body;
+      const postDoc = await QuestionPaper.create({
+        FacultyName,
+        Slot,
+        Subject,
+        Picture: newPath,
+        owner: info.id,
+      });
+      res.json(postDoc);
     });
-    res.json(postDoc);
-  });
-});
+  }
+);
 
 // Get request for Showing question paper
 
-app.put("questionpaper", uploadMiddleware.single("file"), async (req, res) => {
+app.put("questionpapers", uploadMiddleware.single("file"), async (req, res) => {
   let newPath = null;
   if (req.file) {
     const { originalname, path } = req.file;
@@ -141,7 +161,7 @@ app.put("questionpaper", uploadMiddleware.single("file"), async (req, res) => {
   });
 });
 
-app.get("questionpaper", async (req, res) => {
+app.get("questionpapers", async (req, res) => {
   res.json(
     await QuestionPaper.find()
       .populate("owner", ["username"])
@@ -307,7 +327,7 @@ app.get("/club/:id", async (req, res) => {
 
 // Post request for uploading Alumni
 
-app.post("/alumniss", async (req, res) => {
+app.post("/alumnis", async (req, res) => {
   const { Name, Branch, Year, Contact, LinkedIn } = req.body;
   const postDoc = await Alumni.create({
     Name,
