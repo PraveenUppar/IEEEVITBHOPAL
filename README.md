@@ -1,9 +1,13 @@
 IEEE VIT BHOPAL HACKATHON BEYOND LEVEL 0
 
 Project Title: Uni-Help.
+
 Theme: Student Welfare.
+
 Team Name: Code Blooded.
+
 Team Number: BLH09.
+
 Team Members: Praveen Uppar, Tejasav Khandelwal, Pushpak Chanda, Kriti.
 
 Project Description:
@@ -13,7 +17,7 @@ Student Welfare Web App
 A comprehensive web application designed to enhance student life, providing a one-stop platform for various student needs. Our app offers five key features:
 
 1. Academic Support: Access past year question papers and upload new ones to help fellow students.
-2. Alumni Network: Connect with college alumni, view their LinkedIn profiles, and expand professional network.
+2. Alumni Network: Connect with college alumni, view their LinkedIn profiles, and expand your professional network.
 3. Club Central: A centralized platform for clubs to advertise events, list details, and reach a wider audience.
 4. Project Hub: Showcase student projects, collaborate with interested individuals, and find team members to bring ideas to life.
 5. Package Delivery: Easily list delivery details, pick up orders, and have packages delivered to students.
@@ -41,9 +45,11 @@ Technologies Used:
 Setup Instructions:
 
 Step 1: Clone the Repository
-Open your terminal and run the command: `git clone (link unavailable)
+Open your terminal and run the command: git clone https://github.com/PraveenUppar/IEEEVitBhopal_BLH09_CodeBlooded.git
+
 Step 2: Install Dependencies
 Run the command: npm install
+
 Step 3: Start the Server
 Run the command: npm start
 
