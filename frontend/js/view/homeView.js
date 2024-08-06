@@ -8,7 +8,7 @@ class HomeView {
   handelNavClick() {
     const parentEl = document.querySelector(".nav-list");
     parentEl.addEventListener("click", (e) => {
-      const target = e.target.parentElement;
+      const target = e.target.closest(".nav-items");
       console.log(target);
     });
   }

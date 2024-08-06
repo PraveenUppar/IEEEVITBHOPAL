@@ -1,0 +1,143 @@
+// ************************************
+// main container
+// ************************************
+.main-container {
+  display: grid;
+  grid-template-columns: 0.35fr 1fr;
+}
+
+// ************************************
+// side menu bar
+// ************************************
+.side-menu {
+  height: 100vh;
+  background-color: var(--color-black-3);
+  padding: 4.8rem 3.2rem;
+}
+
+// logo box (header)
+.header-logo {
+  &-box {
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+    border-bottom: 0.1rem solid var(--color-black-1);
+    padding: 0 1.8rem;
+    padding-bottom: 2.4rem;
+  }
+
+  &-img {
+    font-size: 2.4rem;
+    color: var(--color-black-1);
+    background-color: var(--color-white);
+    padding: 0.6rem;
+    border-radius: 0.6rem;
+  }
+}
+
+// side nav
+.nav {
+  width: 100%;
+  height: 100%;
+  padding: 2.4rem 0 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+
+  &-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  &-items {
+    padding: 1.4rem 2.4rem;
+    border-radius: 1.4rem;
+
+    &:hover {
+      background-color: var(--color-black-1);
+      cursor: pointer;
+    }
+
+    &--active {
+      background-color: var(--color-black-1);
+    }
+  }
+
+  &-link {
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+    border-radius: 0.6rem;
+  }
+
+  &-option-logo {
+    font-size: 2.4rem;
+  }
+
+  &-extras {
+    width: 100%;
+    padding: 2.4rem 3.6rem 0.2rem;
+
+    &-btn {
+      justify-content: center;
+      gap: 0.3rem;
+      padding: 0.8rem 0.5rem;
+      border-radius: 0.6rem;
+      border: none;
+      width: 100%;
+      margin-bottom: 2.4rem;
+
+      &-box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.2rem;
+      }
+    }
+
+    &-footer {
+      border-top: 0.1rem solid var(--color-black-1);
+      padding: 1.6rem 0;
+    }
+  }
+}
+
+// ************************************
+// main option container
+// ************************************
+
+.main-options {
+  &-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    gap: 1.4rem;
+    padding: 1.4rem;
+    overflow: scroll;
+  }
+
+  &-box {
+    background-color: var(--color-black-3);
+    border-radius: 1.4rem;
+    overflow: hidden;
+    padding: 2.4rem 4.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &-text {
+      padding: 2.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      &-btn {
+        padding: 0.6rem;
+        border-radius: 0.4rem;
+      }
+    }
+  }
+}
