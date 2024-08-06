@@ -1,9 +1,13 @@
 IEEE VIT BHOPAL HACKATHON BEYOND LEVEL 0
 
 Project Title: Uni-Help
+
 Theme: Student Welfare
+
 Team Name: Code Blooded
+
 Team Number: BLH09
+
 Team Members: Praveen Uppar, Tejasav Khandelwal, Pushpak Chanda, Kriti
 
 Project Description:
@@ -42,8 +46,10 @@ Setup Instructions:
 
 Step 1: Clone the Repository
 Open your terminal and run the command: `git clone (link unavailable)
+
 Step 2: Install Dependencies
 Run the command: npm install
+
 Step 3: Start the Server
 Run the command: npm start
 
