@@ -1,4 +1,4 @@
-// This code creates a database model for storing Package data in a database.
+// This code creates a database model for storing Project data in a database.
 
 const mongoose = require("mongoose");
 
