@@ -1,28 +1,24 @@
 IEEE VIT BHOPAL HACKATHON BEYOND LEVEL 0
 
 Project Title: Uni-Help
-
 Theme: Student Welfare
-
 Team Name: Code Blooded
-
 Team Number: BLH09
-
 Team Members: Praveen Uppar, Tejasav Khandelwal, Pushpak Chanda, Kriti
 
 Project Description:
 
-Student Welfare Web App 🌐
+Student Welfare Web App
 
 A comprehensive web application designed to enhance student life, providing a one-stop platform for various student needs. Our app offers five key features:
 
-1. Academic Support 📚: Access past year question papers and upload new ones to help fellow students.
-2. Alumni Network 📈: Connect with college alumni, view their LinkedIn profiles, and expand professional network.
-3. Club Central 🎉: A centralized platform for clubs to advertise events, list details, and reach a wider audience.
-4. Project Hub 💡: Showcase student projects, collaborate with interested individuals, and find team members to bring ideas to life.
-5. Package Delivery 📦: Easily list delivery details, pick up orders, and have packages delivered to students.
+1. Academic Support: Access past year question papers and upload new ones to help fellow students.
+2. Alumni Network: Connect with college alumni, view their LinkedIn profiles, and expand professional network.
+3. Club Central: A centralized platform for clubs to advertise events, list details, and reach a wider audience.
+4. Project Hub: Showcase student projects, collaborate with interested individuals, and find team members to bring ideas to life.
+5. Package Delivery: Easily list delivery details, pick up orders, and have packages delivered to students.
 
-Our webapp aims to foster a supportive community, facilitate knowledge sharing, and simplify student life. Explore our repository to learn more about our project and contribute to its growth!
+Our web app aims to foster a supportive community, facilitate knowledge sharing, and simplify student life. Explore our repository to learn more about our project and contribute to its growth!
 
 Technologies Used:
 
@@ -35,7 +31,7 @@ Technologies Used:
 4. Node.js: JavaScript runtime environment for building the server-side application
 5. Express.js: Node.js web framework for building the application's backend
 6. MongoDB: NoSQL database for storing data
-7. Mongoose: MongoDB object modeling tool for interacting with the database
+7. Mongoose: MongoDB object modelling tool for interacting with the database
 8. Bcrypt: Library for hashing and salting passwords
 9. JSON Web Token: Library for creating and verifying JSON Web Tokens (JWT) for authentication and authorization
 10. Cookie-parser: Middleware for parsing cookies in HTTP requests
@@ -46,10 +42,8 @@ Setup Instructions:
 
 Step 1: Clone the Repository
 Open your terminal and run the command: `git clone (link unavailable)
-
 Step 2: Install Dependencies
 Run the command: npm install
-
 Step 3: Start the Server
 Run the command: npm start
 
