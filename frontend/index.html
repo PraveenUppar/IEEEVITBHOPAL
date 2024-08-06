@@ -4,13 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- Favicon
+    <link rel="shortcut icon" href="/assets/" type="image/x-icon" /> -->
+
     <!--  -->
     <!-- Description of site -->
     <meta name="description" content="Student dashboard" />
     <!--  -->
 
+    <!-- icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="./scss/styles.scss" />
+    <link rel="stylesheet" href="./scss/main.scss" />
 
     <!-- Script -->
     <script defer src="./js/controller.js" type="module"></script>
@@ -18,5 +32,341 @@
     <!-- Ttile -->
     <title>Uni Help</title>
   </head>
-  <body></body>
+  <body>
+    <div class="main-container">
+      <!-- side menu -->
+      <aside class="side-menu">
+        <!-- logo -->
+        <header class="header-logo-box">
+          <i class="ph ph-diamonds-four header-logo-img"></i>
+          <h1 class="heading-primary">Uni Help</h1>
+        </header>
+        <!-- options -->
+        <nav class="nav">
+          <ul class="nav-list">
+            <li class="nav-items nav-items--active" data-section="home">
+              <a href="#" class="link nav-link">
+                <i class="ph ph-house-line nav-option-logo"></i>
+                <p class="text">Home</p>
+              </a>
+            </li>
+            <li
+              class="nav-items academic-help-nav-item"
+              data-section="academicHelp"
+            >
+              <a href="#" class="link nav-link">
+                <i class="ph ph-book-open-text nav-option-logo"></i>
+                <p class="text">Academic Help</p>
+              </a>
+            </li>
+            <li
+              class="nav-items bring-my-package-nav-item"
+              data-section="bringMyPackage"
+            >
+              <a href="#" class="link nav-link">
+                <i class="ph ph-package nav-option-logo"></i>
+                <p class="text">Bring my Package</p>
+              </a>
+            </li>
+            <li
+              class="nav-items club-events-nav-item"
+              data-section="clubEvents"
+            >
+              <a href="#" class="link nav-link">
+                <i class="ph ph-calendar-dots nav-option-logo"></i>
+                <p class="text">Club Events</p>
+              </a>
+            </li>
+            <li
+              class="nav-items epics-project-nav-item"
+              data-section="epicsProjects"
+            >
+              <a href="#" class="link nav-link">
+                <i class="ph ph-laptop nav-option-logo"></i>
+                <p class="text">Epics Projects</p>
+              </a>
+            </li>
+            <li
+              class="nav-items alumini-networking-nav-item"
+              data-section="aluminiNetworking"
+            >
+              <a href="#" class="link nav-link">
+                <i class="ph ph-network nav-option-logo"></i>
+                <p class="text">Alumini Networking</p>
+              </a>
+            </li>
+          </ul>
+
+          <div class="nav-extras">
+            <div class="nav-extras-btn-box">
+              <button class="btn nav-extras-btn margin-bottom-s-3">
+                <i class="ph ph-sign-in nav-option-logo"></i>
+                <p class="text">Sign-up</p>
+              </button>
+              <button class="btn nav-extras-btn margin-bottom-s-3">
+                <i class="ph ph-user-circle nav-option-logo"></i>
+                <p class="text">Sign-in</p>
+              </button>
+            </div>
+            <footer class="nav-extras-footer">
+              <p class="text-v-sml margin-bottom-s-1">
+                Designed and developed by team code blooded in
+                <strong>IEEE Vit Bhopal</strong>
+                Hackathon
+              </p>
+              <p class="text-v-sml margin-bottom-s-1">
+                <a href="#" class="link">@Tejasva Khandelwal</a>
+                <a href="#" class="link">@Praveen Uppar</a>
+              </p>
+              <p class="text-v-sml margin-bottom-s-1">
+                All rights reserved. &copy; 2024 Uni Help.
+              </p>
+            </footer>
+          </div>
+        </nav>
+      </aside>
+      <!-- main options -->
+      <section class="main-options-container" id="home">
+        <div class="main-options-box">
+          <p class="text">Academic Help</p>
+          <button
+            class="btn main-options-box-text-btn"
+            data-section="academic-help-nav-item"
+          >
+            <i class="ph ph-paper-plane-right"></i>
+          </button>
+        </div>
+        <div class="main-options-box">
+          <p class="text">Bring my Package</p>
+          <button
+            class="btn main-options-box-text-btn"
+            data-section="bring-my-package-nav-item"
+          >
+            <i class="ph ph-paper-plane-right"></i>
+          </button>
+        </div>
+        <div class="main-options-box">
+          <p class="text">Club Events</p>
+          <button
+            class="btn main-options-box-text-btn"
+            data-section="club-events-nav-item"
+          >
+            <i class="ph ph-paper-plane-right"></i>
+          </button>
+        </div>
+        <div class="main-options-box">
+          <p class="text">Epics Project</p>
+          <button
+            class="btn main-options-box-text-btn"
+            data-section="epics-project-nav-item"
+          >
+            <i class="ph ph-paper-plane-right"></i>
+          </button>
+        </div>
+        <div class="main-options-box">
+          <p class="text">Alumini Networking</p>
+          <button
+            class="btn main-options-box-text-btn"
+            data-section="alumini-networking-nav-item"
+          >
+            <i class="ph ph-paper-plane-right"></i>
+          </button>
+        </div>
+      </section>
+      <!-- academic view -->
+      <section class="academic-help hidden" id="academicHelp">
+        <div class="cta-field">
+          <!-- search bar -->
+          <form action="#" class="search-form">
+            <input
+              type="text"
+              placeholder="Enter faculty name here"
+              class="search-input"
+            />
+            <button class="btn search-btn">
+              <i class="ph ph-magnifying-glass"></i>
+            </button>
+          </form>
+          <!-- post  btn -->
+          <div class="post">
+            <button class="btn post-btn">
+              <i class="ph ph-share post-img"></i>
+              <p class="text">post paper</p>
+            </button>
+          </div>
+        </div>
+        <!-- paper section -->
+        <div class="test-paper-section">
+          <!-- test paper boxes -->
+          <div class="test-paper-box">
+            <!-- paper image -->
+            <img
+              src="./assets/graduation.jpg"
+              alt="test paper"
+              class="test-paper-box-img"
+            />
+            <!-- paper text box -->
+            <div class="test-paper-box-text">
+              <h2 class="heading-primary">Faculty Name</h2>
+              <p class="text">subject</p>
+            </div>
+            <!-- paper text tags -->
+            <p class="text test-paper-box-slot">B11/B12/B13</p>
+            <p class="text test-paper-box-type">MidTerm</p>
+          </div>
+          <div class="test-paper-box">
+            <!-- paper image -->
+            <img
+              src="./assets/graduation.jpg"
+              alt="test paper"
+              class="test-paper-box-img"
+            />
+            <!-- paper text box -->
+            <div class="test-paper-box-text">
+              <h2 class="heading-primary">Faculty Name</h2>
+              <p class="text">subject</p>
+            </div>
+            <!-- paper text tags -->
+            <p class="text test-paper-box-slot">B11/B12/B13</p>
+            <p class="text test-paper-box-type">MidTerm</p>
+          </div>
+          <div class="test-paper-box">
+            <!-- paper image -->
+            <img
+              src="./assets/graduation.jpg"
+              alt="test paper"
+              class="test-paper-box-img"
+            />
+            <!-- paper text box -->
+            <div class="test-paper-box-text">
+              <h2 class="heading-primary">Faculty Name</h2>
+              <p class="text">subject</p>
+            </div>
+            <!-- paper text tags -->
+            <p class="text test-paper-box-slot">B11/B12/B13</p>
+            <p class="text test-paper-box-type">MidTerm</p>
+          </div>
+          <div class="test-paper-box">
+            <!-- paper image -->
+            <img
+              src="./assets/graduation.jpg"
+              alt="test paper"
+              class="test-paper-box-img"
+            />
+            <!-- paper text box -->
+            <div class="test-paper-box-text">
+              <h2 class="heading-primary">Faculty Name</h2>
+              <p class="text">subject</p>
+            </div>
+            <!-- paper text tags -->
+            <p class="text test-paper-box-slot">B11/B12/B13</p>
+            <p class="text test-paper-box-type">MidTerm</p>
+          </div>
+          <div class="test-paper-box">
+            <!-- paper image -->
+            <img
+              src="./assets/graduation.jpg"
+              alt="test paper"
+              class="test-paper-box-img"
+            />
+            <!-- paper text box -->
+            <div class="test-paper-box-text">
+              <h2 class="heading-primary">Faculty Name</h2>
+              <p class="text">subject</p>
+            </div>
+            <!-- paper text tags -->
+            <p class="text test-paper-box-slot">B11/B12/B13</p>
+            <p class="text test-paper-box-type">MidTerm</p>
+          </div>
+          <div class="test-paper-box">
+            <!-- paper image -->
+            <img
+              src="./assets/graduation.jpg"
+              alt="test paper"
+              class="test-paper-box-img"
+            />
+            <!-- paper text box -->
+            <div class="test-paper-box-text">
+              <h2 class="heading-primary">Faculty Name</h2>
+              <p class="text">subject</p>
+            </div>
+            <!-- paper text tags -->
+            <p class="text test-paper-box-slot">B11/B12/B13</p>
+            <p class="text test-paper-box-type">MidTerm</p>
+          </div>
+          <div class="test-paper-box">
+            <!-- paper image -->
+            <img
+              src="./assets/graduation.jpg"
+              alt="test paper"
+              class="test-paper-box-img"
+            />
+            <!-- paper text box -->
+            <div class="test-paper-box-text">
+              <h2 class="heading-primary">Faculty Name</h2>
+              <p class="text">subject</p>
+            </div>
+            <!-- paper text tags -->
+            <p class="text test-paper-box-slot">B11/B12/B13</p>
+            <p class="text test-paper-box-type">MidTerm</p>
+          </div>
+          <div class="test-paper-box">
+            <!-- paper image -->
+            <img
+              src="./assets/graduation.jpg"
+              alt="test paper"
+              class="test-paper-box-img"
+            />
+            <!-- paper text box -->
+            <div class="test-paper-box-text">
+              <h2 class="heading-primary">Faculty Name</h2>
+              <p class="text">subject</p>
+            </div>
+            <!-- paper text tags -->
+            <p class="text test-paper-box-slot">B11/B12/B13</p>
+            <p class="text test-paper-box-type">MidTerm</p>
+          </div>
+          <div class="test-paper-box">
+            <!-- paper image -->
+            <img
+              src="./assets/graduation.jpg"
+              alt="test paper"
+              class="test-paper-box-img"
+            />
+            <!-- paper text box -->
+            <div class="test-paper-box-text">
+              <h2 class="heading-primary">Faculty Name</h2>
+              <p class="text">subject</p>
+            </div>
+            <!-- paper text tags -->
+            <p class="text test-paper-box-slot">B11/B12/B13</p>
+            <p class="text test-paper-box-type">MidTerm</p>
+          </div>
+          <div class="test-paper-box">
+            <!-- paper image -->
+            <img
+              src="./assets/graduation.jpg"
+              alt="test paper"
+              class="test-paper-box-img"
+            />
+            <!-- paper text box -->
+            <div class="test-paper-box-text">
+              <h2 class="heading-primary">Faculty Name</h2>
+              <p class="text">subject</p>
+            </div>
+            <!-- paper text tags -->
+            <p class="text test-paper-box-slot">B11/B12/B13</p>
+            <p class="text test-paper-box-type">MidTerm</p>
+          </div>
+        </div>
+      </section>
+      <section class="bring-my-package hidden" id="bringMyPackage"></section>
+      <section class="club-events hidden" id="clubEvents"></section>
+      <section class="epics-project hidden" id="epicsProjects"></section>
+      <section
+        class="alumini-networking hidden"
+        id="aluminiNetworking"
+      ></section>
+    </div>
+  </body>
 </html>
