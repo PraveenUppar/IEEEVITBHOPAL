@@ -79,6 +79,8 @@ class HomeView {
       e.preventDefault();
       handler();
       this.clearRegisterForm();
+      this.hideloginBtn();
+      this.showLogoutBtn();
       parentel.classList.add("hidden");
     });
   }
@@ -109,6 +111,26 @@ class HomeView {
       email: email,
       password: password,
     };
+  }
+
+  hideloginBtn() {
+    document.getElementById("register-btn").classList.add("hidden");
+    document.getElementById("sign-in-btn").classList.add("hidden");
+  }
+
+  hideLogoutBtn() {
+    document.getElementById("logout").classList.add("hidden");
+  }
+  showLogoutBtn() {
+    document.getElementById("logout").classList.remove("hidden");
+  }
+
+  handelLogoutBtnClick() {
+    document
+      .getElementById("logout")
+      .addEventListener("click", function (_, handler) {
+        handler();
+      });
   }
 }
 

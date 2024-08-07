@@ -69,8 +69,35 @@ export const sendLoginData = async function (data) {
         password,
       }),
     });
-    console.log(resp);
+    if (resp.ok === false) {
+      throw new Error("Wrong credentials");
+    }
+    const data = await resp.json();
     alert("Login successful");
+    return data;
+  } catch (err) {
+    alert(err);
+  }
+};
+
+export const logout = function () {
+  try {
+    fetch("http://localhost:7000/logout", {
+      credentials: "include",
+      method: "POST",
+    });
+    alert("Logout successful");
+  } catch (err) {
+    alert("Something went wrong");
+  }
+};
+
+export const getTestPapers = async function () {
+  try {
+    const resp = await fetch("http://localhost:7000/questionpapers");
+    const data = await resp.json();
+    console.log(data);
+    return data;
   } catch (err) {
     alert("Something went wrong");
   }
