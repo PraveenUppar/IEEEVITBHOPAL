@@ -181,7 +181,7 @@
       </section>
       <!-- academic view -->
       <section class="academic-help hidden" id="academicHelp">
-        <div class="cta-field">
+        <div class="academic-cta-field cta-field">
           <!-- search bar -->
           <form action="#" class="search-form">
             <input
@@ -379,7 +379,7 @@
       <div class="main-form-box hidden"></div>
     </div>
     <!-- Post test paper form -->
-    <div class="main-form-container" id="post-test-paper">
+    <div class="main-form-container hidden" id="post-test-paper">
       <div class="main-form-box">
         <form action="#" class="form">
           <p class="main-form-heading">Post Paper</p>
@@ -389,12 +389,14 @@
             ></label>
             <input
               type="text"
-              id="name"
+              id="faculty-name"
               class="form-input"
               placeholder="Faculty name"
               required
             />
-            <label for="name" class="form-label-text">Faculty name</label>
+            <label for="faculty-name" class="form-label-text"
+              >Faculty name</label
+            >
             <i class="ph ph-warning form-icon-sml form-warning"></i>
           </div>
           <div class="form-box">
@@ -460,6 +462,7 @@
                 id="file"
                 class="main-form-file-input"
                 accept=".pdf"
+                required
               />
               <i class="ph ph-upload form-icon"></i>
               <p class="text">Upload pdf</p>

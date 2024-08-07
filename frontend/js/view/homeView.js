@@ -5,7 +5,9 @@ class HomeView {
     this.handelNavClick();
     this.handelMainOptionClick();
     this.handleLoginBtnClick();
-    this.handelFormExitClick();
+    this.handelFormExitClick(document.getElementById("sign-in-form"));
+    this.handelAcademicHelpclick();
+    this.handelFormExitClick(document.getElementById("post-test-paper"));
   }
 
   #changeActiveSection(target) {
@@ -42,7 +44,16 @@ class HomeView {
     });
   }
 
-  renderForm(type) {
+  handelFormExitClick(parentEl) {
+    parentEl.addEventListener("click", (e) => {
+      const btnTarget = e.target.closest(".main-form-cancel-btn");
+      if (!btnTarget) return;
+      this.removeLoginForm();
+      parentEl.classList.add("hidden");
+    });
+  }
+
+  renderLoginForm(type) {
     document.getElementById("sign-in-form").classList.remove("hidden");
     const formParent = document.querySelector(".main-form-box");
     const html = `
@@ -114,16 +125,16 @@ class HomeView {
     parentEl.addEventListener("click", (e) => {
       const target = e.target.closest(".nav-extras-btn");
       if (!target) return;
-      this.renderForm(target.dataset.btnType);
+      this.renderLoginForm(target.dataset.btnType);
     });
   }
 
-  handelFormExitClick() {
-    const parentEl = document.getElementById("sign-in-form");
+  handelAcademicHelpclick() {
+    const parentEl = document.querySelector(".academic-cta-field");
     parentEl.addEventListener("click", (e) => {
-      const btnTarget = e.target.closest(".main-form-cancel-btn");
-      if (!btnTarget) return;
-      this.removeLoginForm();
+      const target = e.target.closest(".post-btn");
+      if (!target) return;
+      document.getElementById("post-test-paper").classList.remove("hidden");
     });
   }
 }
