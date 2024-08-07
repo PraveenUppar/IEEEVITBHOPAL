@@ -92,8 +92,8 @@ app.post("/login", async (req, res) => {
 // Post request for verifying admin login
 
 app.post("/login", async (req, res) => {
-  const { email, password } = req.body;
-  const userDoc = await Admin.findOne({ email });
+  const { email, password, access } = req.body;
+  const userDoc = await Admin.findOne({ email, access });
   const passOk = bcrypt.compareSync(password, userDoc.password);
   if (passOk) {
     jwt.sign({ email, id: userDoc._id }, secret, {}, (err, token) => {
