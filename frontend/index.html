@@ -60,12 +60,12 @@
               </a>
             </li>
             <li
-              class="nav-items bring-my-package-nav-item"
+              class="nav-items requests-nav-item"
               data-section="bringMyPackage"
             >
               <a href="#" class="link nav-link">
                 <i class="ph ph-package nav-option-logo"></i>
-                <p class="text">Bring my Package</p>
+                <p class="text">requests</p>
               </a>
             </li>
             <li
@@ -101,17 +101,17 @@
             <div class="nav-extras-btn-box">
               <button
                 class="btn nav-extras-btn margin-bottom-s-3"
-                data-btn-type="btn-sign-up"
+                data-btn-type="register-form"
               >
                 <i class="ph ph-sign-in nav-option-logo"></i>
                 <p class="text">Register</p>
               </button>
               <button
                 class="btn nav-extras-btn margin-bottom-s-3"
-                data-btn-type="btn-sign-in"
+                data-btn-type="sign-in-form"
               >
                 <i class="ph ph-user-circle nav-option-logo"></i>
-                <p class="text">log-in</p>
+                <p class="text">Sign-in</p>
               </button>
             </div>
             <footer class="nav-extras-footer">
@@ -143,10 +143,10 @@
           </button>
         </div>
         <div class="main-options-box">
-          <p class="text">Bring my Package</p>
+          <p class="text">Requests</p>
           <button
             class="btn main-options-box-text-btn"
-            data-section="bring-my-package-nav-item"
+            data-section="requests-nav-item"
           >
             <i class="ph ph-paper-plane-right"></i>
           </button>
@@ -156,15 +156,6 @@
           <button
             class="btn main-options-box-text-btn"
             data-section="club-events-nav-item"
-          >
-            <i class="ph ph-paper-plane-right"></i>
-          </button>
-        </div>
-        <div class="main-options-box">
-          <p class="text">Epics Project</p>
-          <button
-            class="btn main-options-box-text-btn"
-            data-section="epics-project-nav-item"
           >
             <i class="ph ph-paper-plane-right"></i>
           </button>
@@ -374,9 +365,109 @@
         id="aluminiNetworking"
       ></section>
     </div>
-    <!-- login form -->
+    <!-- register form -->
+    <div class="main-form-container hidden" id="register-form">
+      <div class="main-form-box">
+        <form action="#" class="form">
+          <p class="main-form-heading">Register</p>
+          <div class="form-box">
+            <!-- Name -->
+            <label for="register-name"
+              ><i class="ph-fill ph-user-circle form-icon"></i
+            ></label>
+            <input
+              type="text"
+              id="register-name"
+              class="form-input"
+              placeholder="Full name"
+              required
+            />
+            <label for="register-name" class="form-label-text">Full name</label>
+            <i class="ph-fill ph-warning form-icon-sml form-warning"></i>
+          </div>
+          <!-- email -->
+          <div class="form-box">
+            <label for="register-email">
+              <i class="ph-fill ph-envelope form-icon"></i>
+            </label>
+            <input
+              type="email"
+              id="register-email"
+              class="form-input"
+              placeholder="E-mail"
+              required
+            />
+            <label for="register-email" class="form-label-text">E-mail</label>
+            <i class="ph-fill ph-warning form-icon-sml form-warning"></i>
+          </div>
+          <!-- password -->
+          <div class="form-box margin-bottom-med">
+            <label for="register-password">
+              <i class="ph-fill ph-lock-key-open form-icon"></i>
+            </label>
+            <input
+              type="Password"
+              id="register-password"
+              class="form-input"
+              placeholder="Password"
+              required
+            />
+            <label for="register-password" class="form-label-text"
+              >Password</label
+            >
+            <i class="ph-fill ph-warning form-icon-sml form-warning"></i>
+          </div>
+          <button class="btn form-btn register-">Sign Up</button>
+        </form>
+        <button class="main-form-cancel-btn btn">
+          <i class="ph ph-x"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- sign-in form -->
     <div class="main-form-container hidden" id="sign-in-form">
-      <div class="main-form-box hidden"></div>
+      <div class="main-form-box">
+        <form action="#" class="form">
+          <p class="main-form-heading">Sign in</p>
+          <!-- email -->
+          <div class="form-box">
+            <label for="sign-in-email">
+              <i class="ph-fill ph-envelope form-icon"></i>
+            </label>
+            <input
+              type="email"
+              id="sign-in-email"
+              class="form-input"
+              placeholder="E-mail"
+              required
+            />
+            <label for="sign-in-email" class="form-label-text">E-mail</label>
+            <i class="ph-fill ph-warning form-icon-sml form-warning"></i>
+          </div>
+          <!-- password -->
+          <div class="form-box margin-bottom-med">
+            <label for="sign-in-password">
+              <i class="ph-fill ph-lock-key-open form-icon"></i>
+            </label>
+            <input
+              type="Password"
+              id="sign-in-password"
+              class="form-input"
+              placeholder="Password"
+              required
+            />
+            <label for="sign-in-password" class="form-label-text"
+              >Password</label
+            >
+            <i class="ph-fill ph-warning form-icon-sml form-warning"></i>
+          </div>
+          <button class="btn form-btn" id="login-form-btn">Sign Up</button>
+        </form>
+        <button class="main-form-cancel-btn btn">
+          <i class="ph ph-x"></i>
+        </button>
+      </div>
     </div>
     <!-- Post test paper form -->
     <div class="main-form-container hidden" id="post-test-paper">

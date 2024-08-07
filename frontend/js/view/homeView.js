@@ -4,9 +4,10 @@ class HomeView {
   constructor() {
     this.handelNavClick();
     this.handelMainOptionClick();
-    this.handleLoginBtnClick();
-    this.handelFormExitClick(document.getElementById("sign-in-form"));
+    this.handelRegisterBtnclick();
     this.handelAcademicHelpclick();
+    this.handelFormExitClick(document.getElementById("register-form"));
+    this.handelFormExitClick(document.getElementById("sign-in-form"));
     this.handelFormExitClick(document.getElementById("post-test-paper"));
   }
 
@@ -48,84 +49,7 @@ class HomeView {
     parentEl.addEventListener("click", (e) => {
       const btnTarget = e.target.closest(".main-form-cancel-btn");
       if (!btnTarget) return;
-      this.removeLoginForm();
       parentEl.classList.add("hidden");
-    });
-  }
-
-  renderLoginForm(type) {
-    document.getElementById("sign-in-form").classList.remove("hidden");
-    const formParent = document.querySelector(".main-form-box");
-    const html = `
-            <form action="#" class="form">
-              <p class="main-form-heading">
-                ${type == "btn-sign-in" ? "Sign In" : "Register"}
-              </p>
-              <div class="form-box ${type == "btn-sign-in" ? "hidden" : ""}">
-                <label for="name"
-                  ><i class="ph-fill ph-user-circle form-icon"></i
-                ></label>
-                <input
-                  type="text"
-                  id="name"
-                  class="form-input"
-                  placeholder="Full name"
-                  required
-                />
-                <label for="name" class="form-label-text">Full name</label>
-                <i class="ph-fill ph-warning form-icon-sml form-warning"></i>
-              </div>
-              <div class="form-box">
-                <label for="email">
-                  <i class="ph-fill ph-envelope form-icon"></i>
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  class="form-input"
-                  placeholder="E-mail"
-                  required
-                />
-                <label for="email" class="form-label-text">E-mail</label>
-                <i class="ph-fill ph-warning form-icon-sml form-warning"></i>
-              </div>
-              <div class="form-box margin-bottom-med">
-                <label for="password">
-                  <i class="ph-fill ph-lock-key-open form-icon"></i>
-                </label>
-                <input
-                  type="Password"
-                  id="password"
-                  class="form-input"
-                  placeholder="Password"
-                  required
-                />
-                <label for="password" class="form-label-text">Password</label>
-                <i class="ph-fill ph-warning form-icon-sml form-warning"></i>
-              </div>
-              <button class="btn form-btn">Sign Up</button>
-            </form>
-            <button class="main-form-cancel-btn btn">
-              <i class="ph ph-x"></i>
-            </button>
-    `;
-    formParent.insertAdjacentHTML("afterbegin", html);
-    formParent.classList.remove("hidden");
-  }
-
-  removeLoginForm() {
-    document.getElementById("sign-in-form").classList.add("hidden");
-    const formParent = document.querySelector(".main-form-box");
-    formParent.innerHTML = "";
-    formParent.classList.add("hidden");
-  }
-
-  handleLoginBtnClick() {
-    const parentEl = document.querySelector(".nav-extras");
-    parentEl.addEventListener("click", (e) => {
-      const target = e.target.closest(".nav-extras-btn");
-      if (!target) return;
-      this.renderLoginForm(target.dataset.btnType);
     });
   }
 
@@ -136,6 +60,48 @@ class HomeView {
       if (!target) return;
       document.getElementById("post-test-paper").classList.remove("hidden");
     });
+  }
+
+  handelRegisterBtnclick() {
+    const parentEl = document.querySelector(".nav-extras");
+    parentEl.addEventListener("click", (e) => {
+      const target = e.target.closest(".nav-extras-btn");
+      if (!target) return;
+      document
+        .getElementById(target.dataset.btnType)
+        .classList.remove("hidden");
+    });
+  }
+
+  handleSubmitEvent(parentFormID, handler) {
+    const parentel = document.getElementById(parentFormID);
+    parentel.addEventListener("submit", (e) => {
+      e.preventDefault();
+      handler();
+      parentel.classList.add("hidden");
+    });
+  }
+
+  getRegisterFormData() {
+    const name = document.getElementById("register-name").value;
+    const email = document.getElementById("register-email").value;
+    const password = document.getElementById("register-password").value;
+    const access = "user";
+    return {
+      name: name,
+      email: email,
+      password: password,
+      access: "user",
+    };
+  }
+
+  getSignInFormData() {
+    const email = document.getElementById("sign-in-email").value;
+    const password = document.getElementById("sign-in-password").value;
+    return {
+      email: email,
+      password: password,
+    };
   }
 }
 
