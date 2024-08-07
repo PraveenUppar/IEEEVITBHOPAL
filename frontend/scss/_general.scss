@@ -10,6 +10,8 @@
 
   --color-blue-1: #439ddf;
   --color-blue-2: #4f87ed;
+
+  --color-bg-1: rgba(0, 0, 0, 0.7);
 }
 
 ::-webkit-scrollbar {
@@ -39,6 +41,7 @@ body {
   scroll-behavior: smooth;
   color: var(--color-white);
   background-color: var(--color-black-1);
+  position: relative;
 }
 
 .main-container {
