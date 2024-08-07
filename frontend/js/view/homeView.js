@@ -42,9 +42,6 @@ class HomeView {
     });
   }
 
-  // btn-sign-in
-  //  btn-sign-up
-
   renderForm(type) {
     document.getElementById("sign-in-form").classList.remove("hidden");
     const formParent = document.querySelector(".main-form-box");
@@ -53,9 +50,7 @@ class HomeView {
               <p class="main-form-heading">
                 ${type == "btn-sign-in" ? "Sign In" : "Register"}
               </p>
-              <div class="form-box margin-bottom-med ${
-                type == "btn-sign-in" ? "hidden" : ""
-              }">
+              <div class="form-box ${type == "btn-sign-in" ? "hidden" : ""}">
                 <label for="name"
                   ><i class="ph-fill ph-user-circle form-icon"></i
                 ></label>
@@ -80,7 +75,7 @@ class HomeView {
                   placeholder="E-mail"
                   required
                 />
-                <label for="name" class="form-label-text">E-mail</label>
+                <label for="email" class="form-label-text">E-mail</label>
                 <i class="ph-fill ph-warning form-icon-sml form-warning"></i>
               </div>
               <div class="form-box margin-bottom-med">
@@ -94,7 +89,7 @@ class HomeView {
                   placeholder="Password"
                   required
                 />
-                <label for="name" class="form-label-text">Password</label>
+                <label for="password" class="form-label-text">Password</label>
                 <i class="ph-fill ph-warning form-icon-sml form-warning"></i>
               </div>
               <button class="btn form-btn">Sign Up</button>
@@ -107,7 +102,7 @@ class HomeView {
     formParent.classList.remove("hidden");
   }
 
-  removeForm() {
+  removeLoginForm() {
     document.getElementById("sign-in-form").classList.add("hidden");
     const formParent = document.querySelector(".main-form-box");
     formParent.innerHTML = "";
@@ -128,7 +123,7 @@ class HomeView {
     parentEl.addEventListener("click", (e) => {
       const btnTarget = e.target.closest(".main-form-cancel-btn");
       if (!btnTarget) return;
-      this.removeForm();
+      this.removeLoginForm();
     });
   }
 }

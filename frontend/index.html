@@ -378,5 +378,100 @@
     <div class="main-form-container hidden" id="sign-in-form">
       <div class="main-form-box hidden"></div>
     </div>
+    <!-- Post test paper form -->
+    <div class="main-form-container" id="post-test-paper">
+      <div class="main-form-box">
+        <form action="#" class="form">
+          <p class="main-form-heading">Post Paper</p>
+          <div class="form-box">
+            <label for="name"
+              ><i class="ph ph-user-circle form-icon"></i
+            ></label>
+            <input
+              type="text"
+              id="name"
+              class="form-input"
+              placeholder="Faculty name"
+              required
+            />
+            <label for="name" class="form-label-text">Faculty name</label>
+            <i class="ph ph-warning form-icon-sml form-warning"></i>
+          </div>
+          <div class="form-box">
+            <label for="slot">
+              <i class="ph ph-calendar-dots form-icon"></i>
+            </label>
+            <input
+              type="text"
+              id="slot"
+              class="form-input"
+              placeholder="Slot"
+              required
+            />
+            <label for="slot" class="form-label-text">Slot</label>
+
+            <i class="ph ph-warning form-icon-sml form-warning"></i>
+          </div>
+          <div class="form-box margin-bottom-med">
+            <label for="subject">
+              <i class="ph ph-book-bookmark form-icon"></i>
+            </label>
+            <input
+              type="text"
+              id="subject"
+              class="form-input"
+              placeholder="subject"
+              required
+            />
+            <label for="name" class="form-label-text">subject</label>
+            <i class="ph ph-warning form-icon-sml form-warning"></i>
+          </div>
+          <div class="main-form-radio-btn-box">
+            <div class="form__radio-group">
+              <input
+                type="radio"
+                class="form__radio-input"
+                id="midTerm"
+                name="size"
+              />
+              <label for="midTerm" class="form__radio-label">
+                <span class="form__radio-button"></span>
+                Mid Term
+              </label>
+            </div>
+            <div class="form__radio-group">
+              <input
+                type="radio"
+                class="form__radio-input"
+                id="termEnd"
+                name="size"
+              />
+              <label for="termEnd" class="form__radio-label">
+                <span class="form__radio-button"></span>
+                Term End
+              </label>
+            </div>
+          </div>
+          <div class="main-form-file-upload">
+            <label for="file" class="main-form-file-upload-label">
+              <input
+                type="file"
+                name="file"
+                id="file"
+                class="main-form-file-input"
+                accept=".pdf"
+              />
+              <i class="ph ph-upload form-icon"></i>
+              <p class="text">Upload pdf</p>
+            </label>
+          </div>
+
+          <button class="btn form-btn">Post</button>
+        </form>
+        <button class="main-form-cancel-btn btn">
+          <i class="ph ph-x"></i>
+        </button>
+      </div>
+    </div>
   </body>
 </html>
