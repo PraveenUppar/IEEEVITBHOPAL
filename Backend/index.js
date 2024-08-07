@@ -8,6 +8,7 @@ const Project = require("./Models/Project.js");
 const Package = require("./Models/Package.js");
 const Club = require("./Models/Club.js");
 const Alumni = require("./Models/Alumni.js");
+const Admin = require("./Models/Admin.js");
 
 // A library for hashing and salting passwords
 const bcrypt = require("bcrypt");
@@ -74,6 +75,25 @@ app.post("/register", async (req, res) => {
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
   const userDoc = await User.findOne({ email });
+  const passOk = bcrypt.compareSync(password, userDoc.password);
+  if (passOk) {
+    jwt.sign({ email, id: userDoc._id }, secret, {}, (err, token) => {
+      if (err) throw err;
+      res.cookie("token", token).json({
+        id: userDoc._id,
+        email,
+      });
+    });
+  } else {
+    res.status(400).json("Wrong credentials");
+  }
+});
+
+// Post request for verifying admin login
+
+app.post("/login", async (req, res) => {
+  const { email, password, access } = req.body;
+  const userDoc = await Admin.findOne({ email, access });
   const passOk = bcrypt.compareSync(password, userDoc.password);
   if (passOk) {
     jwt.sign({ email, id: userDoc._id }, secret, {}, (err, token) => {
