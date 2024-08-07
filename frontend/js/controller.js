@@ -1,5 +1,5 @@
 import HomeView from "./view/homeView.js";
-import { sendRegisterData } from "./model.js";
+import { sendRegisterData, sendLoginData } from "./model.js";
 
 const name = "Tejasva";
 const email = "Tejasva@gmail.com";
@@ -13,7 +13,7 @@ const init = function () {
   });
   HomeView.handleSubmitEvent("sign-in-form", () => {
     const data = HomeView.getSignInFormData();
-    console.log(data);
+    sendLoginData(data);
   });
 };
 

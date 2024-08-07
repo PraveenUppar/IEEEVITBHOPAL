@@ -78,6 +78,7 @@ class HomeView {
     parentel.addEventListener("submit", (e) => {
       e.preventDefault();
       handler();
+      this.clearRegisterForm();
       parentel.classList.add("hidden");
     });
   }
@@ -93,6 +94,12 @@ class HomeView {
       password: password,
       access: "user",
     };
+  }
+
+  clearRegisterForm() {
+    document.getElementById("register-name").value = "";
+    document.getElementById("register-email").value = "";
+    document.getElementById("register-password").value = "";
   }
 
   getSignInFormData() {

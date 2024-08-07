@@ -91,22 +91,22 @@ app.post("/login", async (req, res) => {
 
 // Post request for verifying admin login
 
-app.post("/login", async (req, res) => {
-  const { email, password, access } = req.body;
-  const userDoc = await Admin.findOne({ email, access });
-  const passOk = bcrypt.compareSync(password, userDoc.password);
-  if (passOk) {
-    jwt.sign({ email, id: userDoc._id }, secret, {}, (err, token) => {
-      if (err) throw err;
-      res.cookie("token", token).json({
-        id: userDoc._id,
-        email,
-      });
-    });
-  } else {
-    res.status(400).json("Wrong credentials");
-  }
-});
+// app.post("/login", async (req, res) => {
+//   const { email, password, access } = req.body;
+//   const userDoc = await Admin.findOne({ email, access });
+//   const passOk = bcrypt.compareSync(password, userDoc.password);
+//   if (passOk) {
+//     jwt.sign({ email, id: userDoc._id }, secret, {}, (err, token) => {
+//       if (err) throw err;
+//       res.cookie("token", token).json({
+//         id: userDoc._id,
+//         email,
+//       });
+//     });
+//   } else {
+//     res.status(400).json("Wrong credentials");
+//   }
+// });
 
 // Post request for logout of the user
 
