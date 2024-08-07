@@ -20,11 +20,6 @@ const init = function () {
     const data = HomeView.getSignInFormData();
     const userData = sendLoginData(data);
   });
-  HomeView.handelLogoutBtnClick(() => {
-    HomeView.handelLogoutBtnClick(logout);
-  });
 };
-
-getTestPapers();
 
 init();

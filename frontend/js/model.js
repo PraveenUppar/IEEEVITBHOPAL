@@ -79,26 +79,3 @@ export const sendLoginData = async function (data) {
     alert(err);
   }
 };
-
-export const logout = function () {
-  try {
-    fetch("http://localhost:7000/logout", {
-      credentials: "include",
-      method: "POST",
-    });
-    alert("Logout successful");
-  } catch (err) {
-    alert("Something went wrong");
-  }
-};
-
-export const getTestPapers = async function () {
-  try {
-    const resp = await fetch("http://localhost:7000/questionpapers");
-    const data = await resp.json();
-    console.log(data);
-    return data;
-  } catch (err) {
-    alert("Something went wrong");
-  }
-};

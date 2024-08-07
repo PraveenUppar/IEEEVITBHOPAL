@@ -79,8 +79,6 @@ class HomeView {
       e.preventDefault();
       handler();
       this.clearRegisterForm();
-      this.hideloginBtn();
-      this.showLogoutBtn();
       parentel.classList.add("hidden");
     });
   }
@@ -123,14 +121,6 @@ class HomeView {
   }
   showLogoutBtn() {
     document.getElementById("logout").classList.remove("hidden");
-  }
-
-  handelLogoutBtnClick() {
-    document
-      .getElementById("logout")
-      .addEventListener("click", function (_, handler) {
-        handler();
-      });
   }
 }
 
